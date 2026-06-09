@@ -1,34 +1,152 @@
-# Gradle files
-.gradle/
+# Built application files
+# 编译生成的 APK、AAB、APKM 等安装包文件
+*.apk
+*.ap_
+*.aab
+*.apkm
+*.apks
+
+# Files for the ART/Dalvik VM
+# 虚拟机相关缓存文件
+*.dex
+
+# Java class files
+# Java 编译后的字节码文件
+*.class
+
+# Generated files
+# 自动生成的代码、资源、构建目录
+bin/
+gen/
+out/
 build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+!**/src/androidTest/**/build/
+
+# Gradle files
+# Gradle 构建缓存、本地配置、临时文件
+.gradle/
+.gradle-kotlin-dsl/
+build/
+!**/src/**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # Local configuration file (sdk path, etc)
+# 本地 SDK 路径、环境配置（每个人的电脑不同，必须忽略）
 local.properties
 
-# Log/OS Files
+# Android Studio
+# Android Studio 生成的 IDE 配置、缓存、工作区
+.idea/
+.idea/*
+!.idea/scopes/
+!.idea/copyright/
+!.idea/dictionaries/
+!.idea/inspectionProfiles/
+!.idea/codeStyles/
+!.idea/fileTemplates/
+!.idea/runConfigurations/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# Studio 3.0+
+# Android Studio 3.0 及以上版本的缓存
+.cxx/
+*.apk
+*.ap_
+
+# Proguard
+# 代码混淆生成的文件、日志
+proguard/
+proguard-project.txt
+proguard-android.txt
+proguard-rules.pro
+mapping.txt
+seeds.txt
+usage.txt
+dump.txt
+
+# Log Files
+# 日志文件
 *.log
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
+# Android Profiling
+# 性能分析文件
+*.hprof
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+# Crashlytics
+# 第三方崩溃库配置
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
 
 # Keystore files
+# 签名密钥文件（绝对不能上传到 Git！）
 *.jks
 *.keystore
+*.key
+*.p12
+*.pfx
 
-# Google Services (e.g. APIs or Firebase)
+# Google Services
+# Google 服务配置文件（敏感信息）
 google-services.json
+firebase-credentials.json
 
-# Android Profiling
-*.hprof
+# Fastlane
+# 自动化构建工具 Fastlane 配置
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# NDK
+# NDK 编译产物
+obj/
+*.so
+
+# Version control
+# 版本控制临时文件
+.svn/
+.hg/
+
+# OS specific files
+# 操作系统自动生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Test coverage
+# 测试覆盖率报告
+coverage/
+*.ec
+*.exec
+
+# Node modules (if using React Native/JS)
+# 混合开发项目的 Node 依赖
+node_modules/
+npm-debug.log
+yarn-error.log
