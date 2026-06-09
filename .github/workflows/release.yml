@@ -68,6 +68,34 @@ jobs:
           name: app-release
           path: ./apk
 
+      # =========================
+      # 🆕 动态生成 update.json
+      # =========================
+      - name: 生成 update.json
+        run: |
+          # 获取 APK 文件名
+          APK_NAME=$(ls ./apk/*.apk | xargs -n 1 basename)
+          
+          # 去除 tag 前面的 'v'，例如 v1.0.0 -> 1.0.0
+          VERSION_NAME="${GITHUB_REF_NAME#v}"
+          
+          # 生成 JSON 文件
+          cat > ./apk/update.json << EOF
+          {
+            "versionName": "${VERSION_NAME}",
+            "versionCode": ${GITHUB_RUN_NUMBER},
+            "updateLog": $(echo "${{ github.event.head_commit.message }}" | jq -Rs .),
+            "downloadUrl": "https://github.com/${{ github.repository }}/releases/latest/download/${APK_NAME}"
+          }
+          EOF
+          
+          # 打印验证生成结果
+          echo "✅ 生成的 update.json 内容如下："
+          cat ./apk/update.json
+
+      # =========================
+      # 📤 创建 Release 并上传附件
+      # =========================
       - name: 创建 Release
         uses: softprops/action-gh-release@v2
         with:
@@ -76,6 +104,9 @@ jobs:
             ✅ 自动构建成功
             📅 构建时间：${{ github.event.head_commit.timestamp }}
             📝 提交信息：${{ github.event.head_commit.message }}
-          files: ./apk/*.apk
+          # 同时上传 APK 和 JSON
+          files: |
+            ./apk/*.apk
+            ./apk/update.json
         env:
-          GITHUB_TOKEN: ${{ secrets.S_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
