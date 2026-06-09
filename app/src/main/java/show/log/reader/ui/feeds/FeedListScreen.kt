@@ -251,9 +251,9 @@ private fun formatSyncTime(timestamp: Long): String {
     val diff = now - timestamp
     return when {
         diff < 60_000 -> "刚刚"
-        diff < 3_600_000 -> "${diff / 60_000}月 ago"
-        diff < 86_400_000 -> "${diff / 3_600_000}小时 ago"
-        diff < 604_800_000 -> "${diff / 86_400_000}天 ago"
+        diff < 3_600_000 -> "${diff / 60_000}个月以前"
+        diff < 86_400_000 -> "${diff / 3_600_000}小时以前"
+        diff < 604_800_000 -> "${diff / 86_400_000}天以前"
         else -> SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date(timestamp))
     }
 }

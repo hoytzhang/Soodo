@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:textSize="13sp"
-                tools:text="2h ago" />
+                tools:text="" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textSize="13sp"
-                tools:text="Feed Source" />
+                tools:text="" />
 
         </LinearLayout>
 

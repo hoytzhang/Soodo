@@ -83,7 +83,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Soodo") },
+                title = { Text("素读") },
                 actions = {
                     IconButton(onClick = onFeedsClick) {
                         Icon(painter = painterResource(R.drawable.notifications), contentDescription = "Feeds", modifier = Modifier.size(24.dp))
